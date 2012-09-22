@@ -11,6 +11,7 @@ import org.junit.*
 @TestFor(QuestController)
 class QuestControllerTests {
 
+    @Ignore
     void testSomething() {
        fail "Implement me"
     }

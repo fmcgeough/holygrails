@@ -13,6 +13,9 @@ class CastleControllerTests {
         assert params != null
         // TODO: Populate valid properties like...
         //params["name"] = 'someValidName'
+        params.name = 'Name'
+        params.city = 'Columbus'
+        params.state = 'OH'
     }
 
     void testIndex() {
@@ -102,6 +105,9 @@ class CastleControllerTests {
         // test invalid parameters in update
         params.id = castle.id
         //TODO: add invalid values to params object
+        params.name = ''
+        params.city = ''
+        params.state = ''
 
         controller.update()
 

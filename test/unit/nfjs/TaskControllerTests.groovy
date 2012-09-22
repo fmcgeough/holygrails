@@ -11,6 +11,7 @@ import org.junit.*
 @TestFor(TaskController)
 class TaskControllerTests {
 
+    @Ignore
     void testSomething() {
        fail "Implement me"
     }

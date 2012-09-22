@@ -11,6 +11,7 @@ import org.junit.*
 @TestFor(KnightController)
 class KnightControllerTests {
 
+    @Ignore
     void testSomething() {
        fail "Implement me"
     }
