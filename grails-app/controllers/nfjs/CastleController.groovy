@@ -13,7 +13,8 @@ class CastleController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        [castleInstanceList: Castle.list(params), castleInstanceTotal: Castle.count()]
+        [castleInstanceList: Castle.list(params), castleInstanceTotal: Castle.count(),
+         mapColumns: geocoderService.headers(), mapData: geocoderService.data()]
     }
 
     def create() {
