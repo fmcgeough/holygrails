@@ -3,6 +3,7 @@ package nfjs
 import org.springframework.dao.DataIntegrityViolationException
 
 class CastleController {
+    def geocoderService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -21,6 +22,7 @@ class CastleController {
 
     def save() {
         def castleInstance = new Castle(params)
+        geocoderService.fillInLatLng(castleInstance)
         if (!castleInstance.save(flush: true)) {
             render(view: "create", model: [castleInstance: castleInstance])
             return
@@ -71,7 +73,7 @@ class CastleController {
         }
 
         castleInstance.properties = params
-
+        geocoderService.fillInLatLng(castleInstance)
         if (!castleInstance.save(flush: true)) {
             render(view: "edit", model: [castleInstance: castleInstance])
             return

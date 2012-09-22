@@ -1,14 +1,19 @@
 package nfjs
 
-
-
 import org.junit.*
 import grails.test.mixin.*
 
 @TestFor(CastleController)
 @Mock(Castle)
 class CastleControllerTests {
-
+    
+    @Before
+    void setUp() {
+        def geocoder = mockFor(GeocoderService, true)
+        geocoder.demand.fillInLatLng(1..100) { Castle c -> }
+        controller.geocoderService = geocoder.createMock()
+    }
+    
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...

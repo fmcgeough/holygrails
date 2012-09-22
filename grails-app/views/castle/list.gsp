@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<gvisualization:apiImport />
 		<g:set var="entityName" value="${message(code: 'castle.label', default: 'Castle')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
@@ -15,6 +16,10 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+		<gvisualization:map elementId="map" 
+		  columns="${mapColumns}" data="${mapData}" 
+		  showTip="${true}"/>
+        <div id="map" style="width: 100%;"></div>
 		<div id="list-castle" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -22,34 +27,22 @@
 			</g:if>
 			<table>
 				<thead>
-					<tr>
-					
+					<tr>					
 						<g:sortableColumn property="name" title="${message(code: 'castle.name.label', default: 'Name')}" />
-					
 						<g:sortableColumn property="city" title="${message(code: 'castle.city.label', default: 'City')}" />
-					
 						<g:sortableColumn property="state" title="${message(code: 'castle.state.label', default: 'State')}" />
-					
-						<g:sortableColumn property="latitude" title="${message(code: 'castle.latitude.label', default: 'Latitude')}" />
-					
-						<g:sortableColumn property="longitude" title="${message(code: 'castle.longitude.label', default: 'Longitude')}" />
-					
+					    <g:sortableColumn property="latitude" title="${message(code: 'castle.latitude.label', default: 'Latitude')}" />
+						<g:sortableColumn property="longitude" title="${message(code: 'castle.longitude.label', default: 'Longitude')}" />		
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${castleInstanceList}" status="i" var="castleInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
 						<td><g:link action="show" id="${castleInstance.id}">${fieldValue(bean: castleInstance, field: "name")}</g:link></td>
-					
 						<td>${fieldValue(bean: castleInstance, field: "city")}</td>
-					
 						<td>${fieldValue(bean: castleInstance, field: "state")}</td>
-					
 						<td>${fieldValue(bean: castleInstance, field: "latitude")}</td>
-					
 						<td>${fieldValue(bean: castleInstance, field: "longitude")}</td>
-					
 					</tr>
 				</g:each>
 				</tbody>

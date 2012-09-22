@@ -1,6 +1,7 @@
 import nfjs.*
 
 class BootStrap {
+    def geocoderService
 
     def init = { servletContext ->
         Quest q = new Quest(name:'Seek the grail')
@@ -24,10 +25,12 @@ class BootStrap {
             .addToKnights(title:'Sir', name:'Galahad the Pure', quest:q)
             .addToKnights(title:'Sir', name:'Bedevere', quest:q)
             .addToKnights(title:'Sir', name:'Robin',quest:q)
-            .save(failOnError:true)
+        geocoderService.fillInLatLng(camelot)
+        camelot.save(failOnError:true)
 
         Castle aarrgghh = new Castle(name:'Aaaarrrrggghhh',city:'Framingham',state:'MA')
             aarrgghh.save(failOnError:true)
+        geocoderService.fillInLatLng(aarrgghh)
     }
 
     def destroy = {
