@@ -24,11 +24,31 @@
 				<thead>
 					<tr>
 					
+						<g:sortableColumn property="name" title="${message(code: 'castle.name.label', default: 'Name')}" />
+					
+						<g:sortableColumn property="city" title="${message(code: 'castle.city.label', default: 'City')}" />
+					
+						<g:sortableColumn property="state" title="${message(code: 'castle.state.label', default: 'State')}" />
+					
+						<g:sortableColumn property="latitude" title="${message(code: 'castle.latitude.label', default: 'Latitude')}" />
+					
+						<g:sortableColumn property="longitude" title="${message(code: 'castle.longitude.label', default: 'Longitude')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${castleInstanceList}" status="i" var="castleInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${castleInstance.id}">${fieldValue(bean: castleInstance, field: "name")}</g:link></td>
+					
+						<td>${fieldValue(bean: castleInstance, field: "city")}</td>
+					
+						<td>${fieldValue(bean: castleInstance, field: "state")}</td>
+					
+						<td>${fieldValue(bean: castleInstance, field: "latitude")}</td>
+					
+						<td>${fieldValue(bean: castleInstance, field: "longitude")}</td>
 					
 					</tr>
 				</g:each>
