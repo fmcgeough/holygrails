@@ -1,8 +1,7 @@
 The Quest for the Holy Grails
---------------
-
+=================
 (A Grails Sample App)
-======================
+---------------
 
 The application has several tags, representing stages in the development of the application. Switch from one to another using the 'git tag' command followed by the name of the tag.
 
