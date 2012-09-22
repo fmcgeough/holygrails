@@ -9,9 +9,7 @@ stacktrace.log
 /test/reports
 /test/test-reports
 /test/test-classes
-/target/classes
-/target/docs
-/target-eclipse
+/target
 
 /web-app/WEB-INF
 *.war
